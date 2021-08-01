@@ -5,11 +5,11 @@ from django.shortcuts import render
 def index(request) :
     return HttpResponse("inedx")
 
-def restaurentDetail(request) :
-    return HttpResponse("restaurentDetail")
+def restaurantDetail(request) :
+    return HttpResponse("restaurantDetail")
     
-def restaurentCreate(request) :
-    return HttpResponse("restaurentCreate")
+def restaurantCreate(request) :
+    return HttpResponse("restaurantCreate")
     
 def categoryCreate(request) :
     return HttpResponse("categoryCreate")
