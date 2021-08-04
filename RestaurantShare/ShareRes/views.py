@@ -12,9 +12,11 @@ def index(request) :
     content = {'categories':categories, 'restaurants' : restaurants}
     return render(request, 'ShareRes/index.html', content)
 
-def restaurantDetail(request) :
+def restaurantDetail(request, res_id) :
+    restaurant = Restaurant.objects.get(id = res_id)
+    content = {'restaurant':restaurant}
     #return HttpResponse("restaurantDetail")
-    return render(request, 'ShareRes/restaurantDetail.html')
+    return render(request, 'ShareRes/restaurantDetail.html', content)
     
 def restaurantCreate(request) :
     categories = Category.objects.all()
