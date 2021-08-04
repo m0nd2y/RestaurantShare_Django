@@ -15,8 +15,10 @@ def restaurantDetail(request) :
     return render(request, 'ShareRes/restaurantDetail.html')
     
 def restaurantCreate(request) :
+    categories = Category.objects.all()
+    content = {'categories':categories}
     #return HttpResponse("restaurantCreate")
-    return render(request, 'ShareRes/restaurantCreate.html')
+    return render(request, 'ShareRes/restaurantCreate.html', content)
     
 def categoryCreate(request) :
     categories = Category.objects.all()
