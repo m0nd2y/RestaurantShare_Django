@@ -98,6 +98,7 @@
                             <input type="submit" class="resAddBtn btn btn-danger" role="button" value="삭제"/>
                         </div>
                     </form>
+                    {% endif %}
                     {% endfor %}
 
                     <form action="./create" method="POST" onsubmit="return categoryAddCheckFrom();">{% csrf_token %}
