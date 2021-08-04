@@ -30,3 +30,9 @@ def Create_category(request) :
     new_category.save()
     return HttpResponseRedirect(reverse('index'))
     #return HttpResponse("여기서 category Create 기능을 구현할 예정")
+
+def Delete_category(request) :
+    category_id = request.POST['categoryId']
+    delete_category = Category.objects.get(id = category_id)
+    delete_category.delete()
+    return HttpResponseRedirect(reverse('cateCreatePage'))
