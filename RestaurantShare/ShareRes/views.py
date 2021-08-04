@@ -1,3 +1,4 @@
+from django import http
 from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
@@ -20,6 +21,19 @@ def restaurantCreate(request) :
     #return HttpResponse("restaurantCreate")
     return render(request, 'ShareRes/restaurantCreate.html', content)
     
+def Create_restaurant(request) :
+    category_id = request.POST['resCategory']
+    category = Category.objects.get(id = category_id)
+    name = request.POST['resTitle']
+    link = request.POST['resLink']
+    content = request.POST['resContent']
+    keyword = request.POST['resLoc']
+    new_res = Restaurant(category=category, restaurant_name=name, restaurant_link=link, restaurant_content = content, restaurant_keyword=keyword)
+    new_res.save()
+    return HttpResponseRedirect(reverse('index'))
+
+
+
 def categoryCreate(request) :
     categories = Category.objects.all()
     content = {'categories':categories}
