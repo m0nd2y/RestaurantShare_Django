@@ -1,5 +1,7 @@
-from django.http.response import HttpResponse
+from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
+from .models import *
 
 # Create your views here.
 def index(request) :
@@ -17,3 +19,10 @@ def restaurantCreate(request) :
 def categoryCreate(request) :
     #return HttpResponse("categoryCreate")
     return render(request, 'ShareRes/categoryCreate.html')
+
+def Create_category(request) :
+    category_name = request.POST['categoryName']
+    new_category = Category(category_name = category_name)
+    new_category.save()
+    return HttpResponseRedirect(reverse('index'))
+    #return HttpResponse("여기서 category Create 기능을 구현할 예정")
