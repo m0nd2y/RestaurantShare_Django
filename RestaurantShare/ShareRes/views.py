@@ -8,7 +8,8 @@ from .models import *
 def index(request) :
     #return HttpResponse("inedx")
     categories = Category.objects.all()
-    content = {'categories':categories}
+    restaurants = Restaurant.objects.all()
+    content = {'categories':categories, 'restaurants' : restaurants}
     return render(request, 'ShareRes/index.html', content)
 
 def restaurantDetail(request) :
@@ -31,8 +32,6 @@ def Create_restaurant(request) :
     new_res = Restaurant(category=category, restaurant_name=name, restaurant_link=link, restaurant_content = content, restaurant_keyword=keyword)
     new_res.save()
     return HttpResponseRedirect(reverse('index'))
-
-
 
 def categoryCreate(request) :
     categories = Category.objects.all()
