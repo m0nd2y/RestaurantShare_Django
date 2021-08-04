@@ -7,4 +7,5 @@ urlpatterns = [
     path('restaurantCreate/', views.restaurantCreate),
     path('categoryCreate/', views.categoryCreate),
     path('categoryCreate/create', views.Create_category, name='cateCreate'),
+    path('categoryCreate/delete', views.Delete_category, name='cateDelete'),
 ]
