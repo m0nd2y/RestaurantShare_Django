@@ -6,7 +6,9 @@ from .models import *
 # Create your views here.
 def index(request) :
     #return HttpResponse("inedx")
-    return render(request, 'ShareRes/index.html')
+    categories = Category.objects.all()
+    content = {'categories':categories}
+    return render(request, 'ShareRes/index.html', content)
 
 def restaurantDetail(request) :
     #return HttpResponse("restaurantDetail")
