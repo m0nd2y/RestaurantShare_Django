@@ -29,6 +29,12 @@ def restaurantUpdate(request, res_id) :
     restaurant = Restaurant.objects.get(id = res_id)
     content = {'categories':categories, 'restaurant':restaurant}
     return render(request, 'ShareRes/restaurantUpdate.html', content)
+
+def Delete_restaurant(request) :
+    res_id = request.POST['resId']
+    restaurant = Restaurant.objects.get(id=res_id)
+    restaurant.delete()
+    return HttpResponseRedirect(reverse('index'))
     
 def Update_restaurant(request) :
     resId = request.POST['resId']
