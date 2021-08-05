@@ -33,7 +33,7 @@ def restaurantUpdate(request, res_id) :
 def Update_restaurant(request) :
     resId = request.POST['resId']
     change_category_id = request.POST['resCategory']
-    change_category = Category.objects.all(id = change_category_id)
+    change_category = Category.objects.get(id = change_category_id)
     change_name = request.POST['resTitle']
     change_link = request.POST['resLink']
     change_content = request.POST['resContent']
