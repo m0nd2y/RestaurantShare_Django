@@ -25,7 +25,10 @@ def restaurantCreate(request) :
     return render(request, 'ShareRes/restaurantCreate.html', content)
 
 def restaurantUpdate(request, res_id) :
-    return HttpResponse("update page")
+    categories = Category.objects.all()
+    restaurant = Restaurant.object.get(id = res_id)
+    content = {'categories':categories, 'restaurant':restaurant}
+    return render(request, 'ShareRes/restaurantUpdate.html', content)
     
 def Create_restaurant(request) :
     category_id = request.POST['resCategory']
