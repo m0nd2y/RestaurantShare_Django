@@ -90,7 +90,7 @@
             </div>
         </div>
         <div class="content">
-            <form action="./create" method="POST" onsubmit="return checkFrom();">{% csrf_token %}
+            <form action="./update" method="POST" onsubmit="return checkFrom();">{% csrf_token %}
                 <div class="inputDiv">
                     <div class="input-group">
                         <span class="input-group-addon" id="sizing-addon2">카테고리</span>
@@ -120,6 +120,7 @@
                         <span class="input-group-addon" id="sizing-addon2">장소 키워드</span>
                         <input id="resLoc" name="resLoc" type="text" class="form-control" placeholder="장소 키워드를 입력해주세요." aria-describedby="sizing-addon2" value =" {{restaurant.restaurant_keyword}} ">
                     </div>
+                    <input type="hidden" id = "resId" name="resId" value="{{restaurant.id}}"/>
                     <input type="submit" class="resAddBtn btn btn-info" role="button" value="맛집 수정!"/>
                 </div>
             </form>
