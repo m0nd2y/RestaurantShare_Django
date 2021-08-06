@@ -8,7 +8,7 @@ def sendEmail(requests) :
     checked_res_list = requests.POST.getlist('checks')
     inputReceiver = requests.POST['inputReceiver']
     inputTitle = requests.POST['inputTitle']
-    inputContent = request.POST['inputContent']
+    inputContent = requests.POST['inputContent']
     print(checked_res_list,"/",inputReceiver,"/",inputTitle,"/",inputContent) 
     return HttpResponseRedirect(reverse('index'))
     #return HttpResponse("sendEmail")
