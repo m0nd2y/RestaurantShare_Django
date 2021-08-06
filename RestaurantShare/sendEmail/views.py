@@ -25,5 +25,6 @@ def sendEmail(requests) :
         mail_html += "<br>"
     mail_html += "</body></html>"
     print(mail_html)
+    ###이하 계정 관련 설정
     return HttpResponseRedirect(reverse('index'))
     #return HttpResponse("sendEmail")
